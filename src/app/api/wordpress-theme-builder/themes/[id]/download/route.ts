@@ -5,11 +5,15 @@ import { sql } from '@/utils/wordpress-theme-builder-db'
 
 export async function generatePresignedUrl(s3Key: string) {
   const s3 = new AWS.S3({
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    },
     signatureVersion: 'v4',
     region: process.env.AWS_REGION ?? 'us-east-2',
   })
   const params = {
-    Bucket: process.env.WTG_S3_BUCKET_NAME ?? 'wordpress-theme-generator',
+    Bucket: process.env.S3_BUCKET_NAME ?? 'wordpress-theme-generator',
     Key: s3Key,
     Expires: 60 * 60, // 1 hour
   }

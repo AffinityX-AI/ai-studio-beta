@@ -2,7 +2,7 @@ import archiver from 'archiver'
 import AWS from 'aws-sdk'
 import stream, { Readable } from 'node:stream'
 
-import { sql } from '../../../../utils/wordpress-theme-builder-db'
+import { sql } from '@/utils/wordpress-theme-builder-db'
 import { objectExists } from './s3'
 
 export const zipTheme = async (themeId: number) => {
@@ -31,8 +31,13 @@ export const zipTheme = async (themeId: number) => {
   const theme = themes[0]
   const themeName = theme.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
   const archiveKey = `${themeId}/${themeName}-theme.zip`
-  const s3 = new AWS.S3()
-  const bucket = String(process.env.WTG_S3_BUCKET_NAME)
+  const s3 = new AWS.S3({
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    },
+  })
+  const bucket = String(process.env.S3_BUCKET_NAME)
 
   const passthrough = new stream.PassThrough()
   const uploadTask = new Promise((resolve) => {

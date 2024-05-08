@@ -20,7 +20,7 @@ import {
 //   })
 
 //   const input: GetObjectRequest = {
-//     Bucket: process.env.WTG_S3_BUCKET_NAME,
+//     Bucket: process.env.S3_BUCKET_NAME,
 //     Key: key,
 //   }
 
@@ -38,7 +38,7 @@ import {
 //   })
 
 //   const input: PutObjectRequest = {
-//     Bucket: process.env.WTG_S3_BUCKET_NAME,
+//     Bucket: process.env.S3_BUCKET_NAME,
 //     Key: key,
 //     Body: data,
 //     ContentType: contentType,
@@ -49,11 +49,16 @@ import {
 // }
 
 export const objectExists = async (key: string) => {
-  const s3 = new AWS.S3()
+  const s3 = new AWS.S3({
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    },
+  })
   try {
     await s3
       .headObject({
-        Bucket: String(process.env.WTG_S3_BUCKET_NAME),
+        Bucket: String(process.env.S3_BUCKET_NAME),
         Key: key,
       })
       .promise()
@@ -68,9 +73,14 @@ export const objectExists = async (key: string) => {
 }
 
 export const getObject = async (key: string) => {
-  const s3 = new AWS.S3()
+  const s3 = new AWS.S3({
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    },
+  })
   return await s3
-    .getObject({ Bucket: String(process.env.WTG_S3_BUCKET_NAME), Key: key })
+    .getObject({ Bucket: String(process.env.S3_BUCKET_NAME), Key: key })
     .promise()
 }
 
@@ -79,10 +89,15 @@ export const uploadObject = async (
   data: any,
   contentType: string = 'text/html'
 ) => {
-  const s3 = new AWS.S3()
+  const s3 = new AWS.S3({
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    },
+  })
   return await s3
     .upload({
-      Bucket: String(process.env.WTG_S3_BUCKET_NAME),
+      Bucket: String(process.env.S3_BUCKET_NAME),
       Key: key,
       Body: data,
       ContentType: contentType,
