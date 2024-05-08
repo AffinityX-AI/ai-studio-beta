@@ -3,7 +3,7 @@ import AWS from 'aws-sdk'
 import { zipTheme } from '@/app/apps/wordpress-theme-builder/lib/zip'
 import { sql } from '@/utils/wordpress-theme-builder-db'
 
-export async function generatePresignedUrl(s3Key: string) {
+const generatePresignedUrl = async (s3Key: string) => {
   const s3 = new AWS.S3({
     credentials: {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
