@@ -1,0 +1,64 @@
+h1 {
+  @apply text-2xl font-medium text-black mb-2;
+}
+
+h2 {
+  @apply inline-flex font-medium text-black text-2xl;
+}
+
+ul {
+  @apply list-disc list-inside mb-4;
+}
+
+ul li {
+  @apply text-base text-gray-600 mb-1;
+}
+
+ul li a img {
+  @apply flex p-4 ml-2 max-h-[250px] max-w-[400px];
+}
+
+ul li p,
+ul li>ul li p {
+  @apply !inline;
+}
+
+ul li ul {
+  @apply list-disc list-inside ml-6 mb-0;
+}
+
+.markdown-report a {
+  @apply text-blue-500 underline hover:text-blue-600;
+}
+
+.ant-collapse-header {
+  @apply !p-0
+}
+
+.loading::after {
+  display: inline-block;
+  animation: dotty steps(1, end) 1.5s infinite;
+  content: '';
+}
+
+@keyframes dotty {
+  0% {
+    content: '';
+  }
+
+  25% {
+    content: '.';
+  }
+
+  50% {
+    content: '..';
+  }
+
+  75% {
+    content: '...';
+  }
+
+  100% {
+    content: '';
+  }
+}
