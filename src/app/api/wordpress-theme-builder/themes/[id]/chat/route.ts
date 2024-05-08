@@ -15,7 +15,7 @@ import {
 } from '@/app/apps/wordpress-theme-builder/lib/utils'
 
 // IMPORTANT! Set the runtime to edge
-export const runtime = process.env.NODE_ENV === 'production' ? 'edge' : 'node'
+export const runtime = process.env.NODE_ENV === 'production' ? 'edge' : 'nodejs'
 
 export async function POST(
   req: Request,
