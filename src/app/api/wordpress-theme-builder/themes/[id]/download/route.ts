@@ -9,7 +9,7 @@ export async function generatePresignedUrl(s3Key: string) {
     region: process.env.AWS_REGION ?? 'us-east-2',
   })
   const params = {
-    Bucket: process.env.S3_BUCKET_NAME ?? 'wordpress-theme-generator',
+    Bucket: process.env.WTG_S3_BUCKET_NAME ?? 'wordpress-theme-generator',
     Key: s3Key,
     Expires: 60 * 60, // 1 hour
   }

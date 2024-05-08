@@ -32,7 +32,7 @@ export const zipTheme = async (themeId: number) => {
   const themeName = theme.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
   const archiveKey = `${themeId}/${themeName}-theme.zip`
   const s3 = new AWS.S3()
-  const bucket = String(process.env.S3_BUCKET_NAME)
+  const bucket = String(process.env.WTG_S3_BUCKET_NAME)
 
   const passthrough = new stream.PassThrough()
   const uploadTask = new Promise((resolve) => {

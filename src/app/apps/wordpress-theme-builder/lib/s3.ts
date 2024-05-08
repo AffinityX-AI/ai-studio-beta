@@ -20,7 +20,7 @@ import {
 //   })
 
 //   const input: GetObjectRequest = {
-//     Bucket: process.env.S3_BUCKET_NAME,
+//     Bucket: process.env.WTG_S3_BUCKET_NAME,
 //     Key: key,
 //   }
 
@@ -38,7 +38,7 @@ import {
 //   })
 
 //   const input: PutObjectRequest = {
-//     Bucket: process.env.S3_BUCKET_NAME,
+//     Bucket: process.env.WTG_S3_BUCKET_NAME,
 //     Key: key,
 //     Body: data,
 //     ContentType: contentType,
@@ -53,7 +53,7 @@ export const objectExists = async (key: string) => {
   try {
     await s3
       .headObject({
-        Bucket: String(process.env.S3_BUCKET_NAME),
+        Bucket: String(process.env.WTG_S3_BUCKET_NAME),
         Key: key,
       })
       .promise()
@@ -70,7 +70,7 @@ export const objectExists = async (key: string) => {
 export const getObject = async (key: string) => {
   const s3 = new AWS.S3()
   return await s3
-    .getObject({ Bucket: String(process.env.S3_BUCKET_NAME), Key: key })
+    .getObject({ Bucket: String(process.env.WTG_S3_BUCKET_NAME), Key: key })
     .promise()
 }
 
@@ -82,7 +82,7 @@ export const uploadObject = async (
   const s3 = new AWS.S3()
   return await s3
     .upload({
-      Bucket: String(process.env.S3_BUCKET_NAME),
+      Bucket: String(process.env.WTG_S3_BUCKET_NAME),
       Key: key,
       Body: data,
       ContentType: contentType,
