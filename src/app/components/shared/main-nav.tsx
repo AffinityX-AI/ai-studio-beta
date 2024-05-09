@@ -13,7 +13,7 @@ import {
 
 import type { MenuProps } from 'antd'
 import { Menu } from 'antd'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type MenuItem = Required<MenuProps>['items'][number]
 
@@ -74,7 +74,6 @@ export function MainNav() {
   const pathname = usePathname()
 
   const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e)
     setCurrent(e.key)
 
     switch (e.key) {
@@ -82,13 +81,13 @@ export function MainNav() {
         router.push('/apps/one-touch')
         break
       case 'ask-engage':
-        router.push('/apps/ask-engage')
+        window.location.href = '/apps/ask-engage'
         break
       case 'blog-post-generator':
-        router.push('/apps/blog-post-generator')
+        window.location.href = '/apps/blog-post-generator'
         break
       case 'social-post-generator':
-        router.push('/apps/social-post-generator')
+        window.location.href = '/apps/social-post-generator'
         break
       case 'seo-copilot':
         router.push('/apps/seo-copilot')
@@ -101,11 +100,12 @@ export function MainNav() {
     }
   }
 
-  React.useEffect(() => {
-    if (pathname.endsWith(current)) {
-      setCurrent(pathname.split('/')?.[-1])
-    }
-  }, [current, pathname])
+  useEffect(() => {
+    console.log('pathname', pathname)
+    const currentKey = pathname.split('/')?.reverse()?.[0]
+    console.log('currentKey', currentKey)
+    setCurrent(currentKey)
+  }, [pathname])
 
   return (
     <Menu
