@@ -1,15 +1,13 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useIsFirstRender } from '@mantine/hooks'
+import { usePathname } from 'next/navigation'
 
-// export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic'
 export default function AskEngage() {
-  const firstRender = useIsFirstRender()
+  const pathname = usePathname()
 
   useEffect(() => {
-    if (firstRender) window.location.reload()
-
     const handleScriptLoad = () => {
       const window = globalThis as any
       window.MindStudioSettings = {
@@ -28,23 +26,21 @@ export default function AskEngage() {
     return () => {
       document.body.removeChild(scriptElement)
     }
-  }, [])
+  }, [pathname])
 
   return (
-    <>
-      <iframe
-        id='mindstudio-frame'
-        referrerPolicy='origin'
-        style={{
-          width: '100%',
-          height: 'calc(100vh - 47px)',
-          border: '1px solid rgba(0,0,0,0.1)',
-          borderRadius: '8px',
-          outline: 'none',
-        }}
-        title='AI Embed'
-        frameBorder='0'
-      ></iframe>
-    </>
+    <iframe
+      id='mindstudio-frame'
+      referrerPolicy='origin'
+      style={{
+        width: '100%',
+        height: 'calc(100vh - 47px)',
+        border: '1px solid rgba(0,0,0,0.1)',
+        borderRadius: '8px',
+        outline: 'none',
+      }}
+      title='AI Embed'
+      frameBorder='0'
+    ></iframe>
   )
 }
