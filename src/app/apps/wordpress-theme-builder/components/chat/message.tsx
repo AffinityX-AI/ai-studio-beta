@@ -112,7 +112,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
             You
           </p>
           <p
-            className='flex text-sm text-gray-800'
+            className='flex flex-col text-sm text-gray-800'
             dangerouslySetInnerHTML={{
               __html: highlight(cleanMessage(message)),
             }}
