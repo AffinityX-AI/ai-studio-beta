@@ -181,16 +181,12 @@ export default function WordpressThemeBuilder() {
 
   return (
     <main
-      className={clsx(
-        `min-h-[${contentHeight}px]`,
-        'flex w-screen items-stretch justify-between p-0 bg-white overflow-hidden'
-      )}
+      className='flex w-screen items-stretch justify-between p-0 bg-white overflow-hidden'
+      style={{ height: contentHeight }}
     >
       <div
-        className={clsx(
-          'hidden lg:flex flex-col w-1/4 min-w-[240px] max-w-[320px] h-screen overflow-y-auto items-start justify-start p-0 border-r border-dotted border-gray-200 bg-gray-50',
-          `h-[${contentHeight}px]`
-        )}
+        className='hidden lg:flex flex-col w-1/4 min-w-[240px] max-w-[320px] h-screen overflow-y-auto items-start justify-start p-0 border-r border-dotted border-gray-200 bg-gray-50'
+        style={{ height: contentHeight }}
       >
         <div className='flex flex-col items-center justify-center w-full py-4 px-7 pb-4 border-b border-dotted border-gray-200'>
           {/* <Image src={logo} alt='Logo' className='max-w-[150px]' /> */}
@@ -247,16 +243,12 @@ export default function WordpressThemeBuilder() {
       </Drawer>
 
       <div
-        className={clsx(
-          'flex flex-col w-full items-stretch justify-stretch p-0 overflow-y-scroll',
-          `!h-[${contentHeight}px]`
-        )}
+        className='flex flex-col w-full items-stretch justify-stretch p-0 overflow-y-scroll'
+        style={{ height: contentHeight }}
       >
         <div
-          className={clsx(
-            'flex flex-col items-start justify-between w-full relative',
-            `h-[${contentHeight}px]`
-          )}
+          className='flex flex-col items-start justify-between w-full relative'
+          style={{ height: contentHeight }}
         >
           <ThemeContainer
             currentTheme={currentTheme}

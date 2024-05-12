@@ -173,10 +173,8 @@ export default function OneTouch() {
   return (
     <main className='flex w-screen min-h-screen items-stretch justify-between p-0 bg-white overflow-hidden'>
       <div
-        className={clsx(
-          'hidden lg:flex flex-col w-1/4 min-w-[240px] max-w-[320px] overflow-y-auto items-start justify-start p-0 border-r border-dotted border-gray-200 bg-gray-50',
-          `h-[${contentHeight}px]`
-        )}
+        className='hidden lg:flex flex-col w-1/4 min-w-[240px] max-w-[320px] overflow-y-auto items-start justify-start p-0 border-r border-dotted border-gray-200 bg-gray-50'
+        style={{ height: contentHeight }}
       >
         <div className='flex flex-col items-center justify-center w-full py-4 px-7 pb-4 border-b border-dotted border-gray-200'>
           {/* <Image src={logo} alt='Logo' className='max-w-[150px]' /> */}
@@ -213,10 +211,8 @@ export default function OneTouch() {
         classNames={{ body: '!p-0' }}
       >
         <div
-          className={clsx(
-            'flex flex-col w-full overflow-y-auto items-start justify-start p-0 border-r border-dotted border-gray-200 bg-gray-50',
-            `h-[${contentHeight}px]`
-          )}
+          className='flex flex-col w-full overflow-y-auto items-start justify-start p-0 border-r border-dotted border-gray-200 bg-gray-50'
+          style={{ height: contentHeight }}
         >
           <div className='flex flex-col items-center justify-center w-full py-4 px-7 pb-4 border-b border-dotted border-gray-200'>
             {/* <Image src={logo} alt='Logo' className='max-w-[150px]' /> */}
@@ -238,16 +234,12 @@ export default function OneTouch() {
       </Drawer>
 
       <div
-        className={clsx(
-          'flex flex-col w-full items-stretch justify-stretch pt-8 px-3 lg:px-8 overflow-hidden',
-          `h-[${contentHeight}px]`
-        )}
+        className='flex flex-col w-full items-stretch justify-stretch pt-8 px-3 lg:px-8 overflow-hidden'
+        style={{ height: contentHeight }}
       >
         <div
-          className={clsx(
-            'flex flex-col items-start justify-between w-full overflow-hidden',
-            `h-[${contentHeight}px]`
-          )}
+          className='flex flex-col items-start justify-between w-full overflow-hidden'
+          style={{ height: contentHeight }}
         >
           <div className='flex flex-col items-stretch justify-stretch overflow-auto h-full w-full text-black'>
             {currentThread && currentThread.report && (

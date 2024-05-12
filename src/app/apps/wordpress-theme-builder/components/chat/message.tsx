@@ -2,10 +2,11 @@ import clsx from 'clsx'
 import React, { useEffect } from 'react'
 import type { CollapseProps } from 'antd'
 import { Collapse } from 'antd'
-import hljs from 'highlight.js'
+import { highlight } from 'sugar-high'
 import { useScrollIntoView } from '@mantine/hooks'
 
-import 'highlight.js/styles/github.min.css'
+// import hljs from 'highlight.js'
+// import 'highlight.js/styles/github.min.css'
 
 interface ChatMessageProps {
   sender: string
@@ -48,21 +49,22 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
     return message.trim()
   }
 
-  useEffect(() => {
-    if (codeBlock.current) {
-      hljs.highlightElement(codeBlock.current)
-    }
-  }, [message])
+  // useEffect(() => {
+  //   if (codeBlock.current) {
+  //     // hljs.highlightElement(codeBlock.current)
+  //     const html =
+  //   }
+  // }, [message])
 
-  useEffect(() => {
-    if (
-      codeBlock.current &&
-      aiResponseComplete &&
-      codeBlock.current.dataset.highlighted !== 'yes'
-    ) {
-      hljs.highlightElement(codeBlock.current)
-    }
-  }, [aiResponseComplete])
+  // useEffect(() => {
+  //   if (
+  //     codeBlock.current &&
+  //     aiResponseComplete &&
+  //     codeBlock.current.dataset.highlighted !== 'yes'
+  //   ) {
+  //     hljs.highlightElement(codeBlock.current)
+  //   }
+  // }, [aiResponseComplete])
 
   const items: CollapseProps['items'] = [
     {
@@ -74,9 +76,12 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
           ref={scrollableRef}
         >
           <pre className='flex max-w-full bg-white p-4 rounded-lg'>
-            <code className='flex text-sm text-gray-800' ref={codeBlock}>
-              {cleanMessage(message)}
-            </code>
+            <code
+              className='flex flex-col text-sm text-gray-800'
+              dangerouslySetInnerHTML={{
+                __html: highlight(cleanMessage(message)),
+              }}
+            />
           </pre>
           <div ref={targetRef} />
         </div>
@@ -111,7 +116,12 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
           <p className='flex uppercase font-medium text-[10px] text-gray-400'>
             You
           </p>
-          <p className='flex text-sm text-gray-800'>{cleanMessage(message)}</p>
+          <p
+            className='flex text-sm text-gray-800'
+            dangerouslySetInnerHTML={{
+              __html: highlight(cleanMessage(message)),
+            }}
+          />
         </div>
       )}
       {sender === 'system' && (
