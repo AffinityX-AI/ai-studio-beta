@@ -88,16 +88,6 @@ export const MarkdownReport: React.FC<MarkdownReportProps> = ({ report }) => {
             Download PDF
           </Button>
         </div>
-        // <Button
-        //   className='mb-4'
-        //   onClick={() => {
-        //     const blob = new Blob([markdown], { type: 'text/markdown' })
-        //     saveAs(blob, 'report.md')
-        //   }}
-        //   icon={<ExportOutlined />}
-        // >
-        //   Download Report
-        // </Button>
       )}
       <Markdown
         remarkPlugins={[remarkGfm, remarkImages, pdf]}

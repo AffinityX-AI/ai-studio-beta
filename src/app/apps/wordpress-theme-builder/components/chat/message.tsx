@@ -5,9 +5,6 @@ import { Collapse } from 'antd'
 import { highlight } from 'sugar-high'
 import { useScrollIntoView } from '@mantine/hooks'
 
-// import hljs from 'highlight.js'
-// import 'highlight.js/styles/github.min.css'
-
 interface ChatMessageProps {
   sender: string
   message: string
@@ -19,9 +16,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
   sender,
   message,
   status,
-  aiResponseComplete,
 }) => {
-  const codeBlock = React.useRef<HTMLPreElement>(null)
   const { scrollIntoView, scrollableRef, targetRef } =
     useScrollIntoView<HTMLDivElement>({
       offset: 60,

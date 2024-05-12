@@ -1,11 +1,18 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { useViewportSize } from '@mantine/hooks'
 
 export const dynamic = 'force-dynamic'
 export default function AskEngage() {
   const pathname = usePathname()
+  const { height } = useViewportSize()
+  const [contentHeight, setContentHeight] = useState(0)
+
+  useEffect(() => {
+    setContentHeight(Math.max(0, height - 47))
+  }, [height])
 
   useEffect(() => {
     const handleScriptLoad = () => {
@@ -34,7 +41,7 @@ export default function AskEngage() {
       referrerPolicy='origin'
       style={{
         width: '100%',
-        height: 'calc(100vh - 47px)',
+        height: contentHeight,
         border: '1px solid rgba(0,0,0,0.1)',
         borderRadius: '8px',
         outline: 'none',

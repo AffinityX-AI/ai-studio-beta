@@ -13,9 +13,8 @@ import {
   Progress,
   Segmented,
 } from 'antd'
-// import Image from 'next/image'
+import { highlight } from 'sugar-high'
 import axios from 'axios'
-import clsx from 'clsx'
 
 import { ThreadsList } from './components/threads-list'
 // import logo from '../../public/affinityx-logo.png'
@@ -270,9 +269,14 @@ export default function OneTouch() {
                     )}
                     {reportView === 'JSON' && (
                       <div className='json-report flex flex-col w-full'>
-                        <pre className='flex text-black'>
-                          {JSON.stringify(currentThread.report, null, 2)}
-                        </pre>
+                        <pre
+                          className='flex flex-col text-black'
+                          dangerouslySetInnerHTML={{
+                            __html: highlight(
+                              JSON.stringify(currentThread.report, null, 2)
+                            ),
+                          }}
+                        />
                       </div>
                     )}
                   </>
