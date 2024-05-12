@@ -50,7 +50,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
 
   useEffect(() => {
     if (codeBlock.current) {
-      hljs.highlightBlock(codeBlock.current)
+      hljs.highlightElement(codeBlock.current)
     }
   }, [message])
 
@@ -60,7 +60,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
       aiResponseComplete &&
       codeBlock.current.dataset.highlighted !== 'yes'
     ) {
-      hljs.highlightBlock(codeBlock.current)
+      hljs.highlightElement(codeBlock.current)
     }
   }, [aiResponseComplete])
 

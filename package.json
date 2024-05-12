@@ -45,6 +45,7 @@
     "unified": "^11.0.4"
   },
   "devDependencies": {
+    "@babel/plugin-transform-unicode-regex": "^7.24.1",
     "@types/archiver": "^6.0.2",
     "@types/file-saver": "^2.0.7",
     "@types/node": "^20",
