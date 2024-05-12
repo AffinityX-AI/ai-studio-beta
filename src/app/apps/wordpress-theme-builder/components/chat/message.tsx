@@ -43,6 +43,31 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
       `\n\n    ### Instructions:\n    - Return the full contents of each file that was updated.\n    - Ensure to wrap each file contents in [filename]FILE CONTENTS[/filename]\n      - Within each wrapper, the file contents should then be wrapped within the proper markers (for example: php files should be wrapped in \`\`\`php markers)\n\n    ### Examples:\n    - If the styles.css file was updated, return the response like this:\n      [style.css]\n      \`\`\`css\n      ...\n      \`\`\`\n      [/style.css]\n\n    - If more than one file was updated, return the response like this:\n      [style.css]\n      \`\`\`css\n      ...\n      \`\`\`\n      [/style.css]\n      [index.php]\n      \`\`\`php\n      ...\n      \`\`\`\n      [/index.php]\n    `,
       ''
     )
+    message = message.replace(
+      `### Instructions:
+      - Return the full contents of each file that was updated.
+      - Wrap each file contents in [filename]FILE CONTENTS[/filename]
+      - The file contents should be within the proper markers (for example: php files should be wrapped in \`\`\`php markers)
+      ### Examples:
+      - If the styles.css file was updated, return the response like this:
+      [style.css]
+      \`\`\`css
+      ...
+      \`\`\`
+      [/style.css]
+      - If more than one file was updated, return the response like this:
+      [style.css]
+      \`\`\`css
+      ...
+      \`\`\`
+      [/style.css]
+      [index.php]
+      \`\`\`php
+      ...
+      \`\`\`
+      [/index.php]`,
+      ''
+    )
     return message.trim()
   }
 
