@@ -175,7 +175,10 @@ export default function OneTouch() {
   if (contentHeight < 0) return null
 
   return (
-    <main className='flex w-screen min-h-screen items-stretch justify-between p-0 bg-white overflow-hidden'>
+    <main
+      className='flex w-screen items-stretch justify-between p-0 bg-white overflow-hidden'
+      style={{ height: contentHeight }}
+    >
       <div
         className='hidden lg:flex flex-col w-1/4 min-w-[240px] max-w-[320px] overflow-y-auto items-start justify-start p-0 border-r border-dotted border-gray-200 bg-gray-50'
         style={{ height: contentHeight }}
