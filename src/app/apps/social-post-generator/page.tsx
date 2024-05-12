@@ -13,6 +13,12 @@ export default function SocialPostGenerator() {
     setContentHeight(Math.max(0, height - 47))
   }, [height])
 
+  const window = globalThis as any
+  window.MindStudioSettings = {
+    publicToken: 'pkc3fa41300f6f3f65d9d4fb1809d0f7e9',
+    appId: 'e2147ef5-7386-4192-9a58-85714d44ab0c',
+  }
+
   return (
     <>
       <Script

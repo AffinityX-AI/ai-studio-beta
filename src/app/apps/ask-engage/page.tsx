@@ -13,6 +13,12 @@ export default function AskEngage() {
     setContentHeight(Math.max(0, height - 47))
   }, [height])
 
+  const window = globalThis as any
+  window.MindStudioSettings = {
+    publicToken: 'pkc2002b0aede4953df8fdd4da52340723',
+    appId: 'ba857857-7041-4445-bc61-bf20c0032282',
+  }
+
   return (
     <>
       <Script

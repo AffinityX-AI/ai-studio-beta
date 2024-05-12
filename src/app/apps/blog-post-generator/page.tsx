@@ -13,6 +13,12 @@ export default function BlogPostGenerator() {
     setContentHeight(Math.max(0, height - 47))
   }, [height])
 
+  const window = globalThis as any
+  window.MindStudioSettings = {
+    publicToken: 'pkf1de57a64e69f0f53a6802a099075d67',
+    appId: 'b74163bd-c4da-49e5-bd8c-be5f11fca14b',
+  }
+
   return (
     <>
       <Script
