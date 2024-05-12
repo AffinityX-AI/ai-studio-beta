@@ -32,6 +32,7 @@ export const dynamic = 'force-dynamic'
 
 export default function OneTouch() {
   const { height } = useViewportSize()
+  const [contentHeight, setContentHeight] = useState(0)
   // const [nextCursor, setNextCursor] = useState<string | null>(null)
   const [threadsLoading, setThreadsLoading] = useState<boolean>(true)
   const [threads, setThreads] = useState<any[]>([])
@@ -44,7 +45,10 @@ export default function OneTouch() {
   const [reportView, setReportView] = useState<string>('Markdown')
 
   const [form] = Form.useForm()
-  const contentHeight = Math.min(0, height - 47)
+
+  useEffect(() => {
+    setContentHeight(Math.max(0, height - 47))
+  }, [height])
 
   useEffect(() => {
     setThreadsLoading(true)
