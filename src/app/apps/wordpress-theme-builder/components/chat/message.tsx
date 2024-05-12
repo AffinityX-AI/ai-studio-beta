@@ -16,7 +16,9 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
   sender,
   message,
   status,
+  aiResponseComplete,
 }) => {
+  const codeBlock = React.createRef<HTMLDivElement>()
   const { scrollIntoView, scrollableRef, targetRef } =
     useScrollIntoView<HTMLDivElement>({
       offset: 60,
@@ -51,15 +53,15 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
   //   }
   // }, [message])
 
-  // useEffect(() => {
-  //   if (
-  //     codeBlock.current &&
-  //     aiResponseComplete &&
-  //     codeBlock.current.dataset.highlighted !== 'yes'
-  //   ) {
-  //     hljs.highlightElement(codeBlock.current)
-  //   }
-  // }, [aiResponseComplete])
+  useEffect(() => {
+    if (
+      codeBlock.current &&
+      aiResponseComplete &&
+      codeBlock.current.dataset.highlighted !== 'yes'
+    ) {
+      codeBlock.current.innerHTML = highlight(cleanMessage(message))
+    }
+  }, [aiResponseComplete])
 
   const items: CollapseProps['items'] = [
     {
@@ -74,7 +76,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
             <code
               className='flex flex-col text-sm text-gray-800'
               dangerouslySetInnerHTML={{
-                __html: highlight(cleanMessage(message)),
+                __html: cleanMessage(message),
               }}
             />
           </pre>
@@ -114,7 +116,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
           <p
             className='flex flex-col text-sm text-gray-800'
             dangerouslySetInnerHTML={{
-              __html: highlight(cleanMessage(message)),
+              __html: cleanMessage(message),
             }}
           />
         </div>
