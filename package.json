@@ -12,13 +12,14 @@
     "@ant-design/icons": "^5.3.7",
     "@ant-design/nextjs-registry": "^1.0.0",
     "@anthropic-ai/sdk": "^0.20.9",
+    "@highlight-run/next": "^7.5.3",
     "@mantine/hooks": "^7.9.0",
     "@neondatabase/serverless": "^0.9.1",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "ai": "^3.1.1",
     "animate.css": "^4.1.1",
-    "antd": "^5.17.0",
+    "antd": "5.16.5",
     "archiver": "^7.0.1",
     "aws-sdk": "^2.1615.0",
     "axios": "^1.6.8",
@@ -40,6 +41,7 @@
     "remark-parse": "^11.0.0",
     "remark-pdf": "^0.0.13",
     "remark-rehype": "^11.1.0",
+    "sharp": "^0.33.3",
     "unified": "^11.0.4"
   },
   "devDependencies": {

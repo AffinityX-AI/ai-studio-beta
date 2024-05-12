@@ -101,9 +101,7 @@ export function MainNav() {
   }
 
   useEffect(() => {
-    console.log('pathname', pathname)
     const currentKey = pathname.split('/')?.reverse()?.[0]
-    console.log('currentKey', currentKey)
     setCurrent(currentKey)
   }, [pathname])
 
