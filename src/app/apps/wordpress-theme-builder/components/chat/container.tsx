@@ -191,7 +191,7 @@ export const ChatContainer: React.FC<ChatContainerProps> = ({
                   icon={<DownloadOutlined />}
                   onClick={() =>
                     window.open(
-                      `/api/themes/${currentTheme.id}/download`,
+                      `/api/wordpress-theme-builder/themes/${currentTheme.id}/download`,
                       '_blank'
                     )
                   }
