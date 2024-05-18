@@ -180,7 +180,7 @@ export default function SeoCopilot() {
       >
         <div className='flex flex-col items-center justify-center w-full py-4 px-7 pb-4 border-b border-dotted border-gray-200'>
           {/* <Image src={logo} alt='Logo' className='max-w-[150px]' /> */}
-          <p className='text-blue-800 opacity-40 uppercase font-bold text-[11px] mt-0 tracking-widest'>
+          <p className='text-emerald-800 opacity-40 uppercase font-bold text-[11px] my-0 tracking-widest'>
             SMB SEO Copilot
           </p>
         </div>
@@ -218,7 +218,7 @@ export default function SeoCopilot() {
         >
           <div className='flex flex-col items-center justify-center w-full py-4 px-7 pb-4 border-b border-dotted border-gray-200'>
             {/* <Image src={logo} alt='Logo' className='max-w-[150px]' /> */}
-            <p className='text-blue-800 opacity-40 uppercase font-bold text-[11px] mt-0 tracking-widest'>
+            <p className='text-emerald-800 opacity-40 uppercase font-bold text-[11px] my-0 tracking-widest'>
               SMB SEO Copilot
             </p>
           </div>
