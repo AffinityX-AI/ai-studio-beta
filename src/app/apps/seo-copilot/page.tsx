@@ -244,7 +244,7 @@ export default function SeoCopilot() {
           style={{ height: contentHeight }}
         >
           <div className='flex flex-col items-stretch justify-stretch overflow-auto h-full w-full text-black'>
-            {currentThread && currentThread.report && (
+            {/* {currentThread && currentThread.report && (
               <div className='flex items-center justify-center pb-4'>
                 <Segmented
                   options={['Markdown', 'JSON']}
@@ -253,7 +253,7 @@ export default function SeoCopilot() {
                   onChange={setReportView}
                 />
               </div>
-            )}
+            )} */}
             {currentThread ? (
               <div className='flex w-full h-full overflow-x-auto items-start justify-start pb-8'>
                 {currentThread.status?.toLowerCase() === 'succeeded' ? (
