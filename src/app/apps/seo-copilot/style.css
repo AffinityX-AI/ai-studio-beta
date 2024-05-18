@@ -6,12 +6,28 @@ h2 {
   @apply inline-flex font-medium text-black text-2xl;
 }
 
+h3 {
+  @apply inline-flex font-medium text-black text-lg mb-2;
+}
+
+h4 {
+  @apply inline-flex font-medium text-black text-base mb-2;
+}
+
+hr {
+  @apply my-2;
+}
+
+p {
+  @apply text-base text-black mb-4;
+}
+
 ul {
   @apply list-disc list-inside mb-4;
 }
 
 ul li {
-  @apply text-base text-gray-600 mb-1;
+  @apply text-base text-black mb-1;
 }
 
 ul li a img {
@@ -29,36 +45,4 @@ ul li ul {
 
 .markdown-report a {
   @apply text-blue-500 underline hover:text-blue-600;
-}
-
-.ant-collapse-header {
-  @apply !p-0
-}
-
-.loading::after {
-  display: inline-block;
-  animation: dotty steps(1, end) 1.5s infinite;
-  content: '';
-}
-
-@keyframes dotty {
-  0% {
-    content: '';
-  }
-
-  25% {
-    content: '.';
-  }
-
-  50% {
-    content: '..';
-  }
-
-  75% {
-    content: '...';
-  }
-
-  100% {
-    content: '';
-  }
 }
