@@ -36,17 +36,17 @@ export default function RootLayout({
         <AntdRegistry>
           <div className='flex flex-col w-screen h-full'>
             <header className='flex justify-between items-center h-[47px] px-4 pt-3 bg-white border-b border-slate-200'>
-              <div className='w-1/3 pb-3'>
+              <div className='w-1/4 pb-3'>
                 <Image
                   src={logo}
                   alt='Logo'
                   className='min-w-[100px] max-w-[100px] w-full'
                 />
               </div>
-              <div className='flex items-center justify-center w-full'>
+              <div className='flex items-center justify-center w-full min-w-[1200px] max-w-[1300px]'>
                 <MainNav />
               </div>
-              <div className='flex items-center justify-end w-1/3 pb-3'>
+              <div className='flex items-center justify-end w-1/4 pb-3'>
                 <ProfileCircle />
               </div>
             </header>

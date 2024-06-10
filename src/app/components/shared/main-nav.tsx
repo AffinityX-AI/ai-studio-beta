@@ -4,6 +4,7 @@ import * as React from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import {
   ChatBubble,
+  JournalPage,
   MagicWand,
   OneFingerSelectHandGesture,
   Post,
@@ -33,6 +34,14 @@ const items: MenuItem[] = [
       </div>
     ),
     key: 'ask-engage',
+  },
+  {
+    label: (
+      <div className='flex items-center justify-center gap-2 pb-3 text-sm'>
+        <JournalPage /> Creative Brief
+      </div>
+    ),
+    key: 'creative-brief',
   },
   {
     label: (
@@ -82,6 +91,9 @@ export function MainNav() {
         break
       case 'ask-engage':
         window.location.href = '/apps/ask-engage'
+        break
+      case 'creative-brief':
+        window.location.href = '/apps/creative-brief'
         break
       case 'blog-post-generator':
         window.location.href = '/apps/blog-post-generator'
